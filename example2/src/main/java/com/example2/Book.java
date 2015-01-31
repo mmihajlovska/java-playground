@@ -1,4 +1,4 @@
-package com.exam2;
+package com.example2;
 
 public class Book implements Comparable<Book> {
 

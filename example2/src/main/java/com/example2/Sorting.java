@@ -1,4 +1,4 @@
-package com.exam2;
+package com.example2;
 
 import java.util.Arrays;
 import java.util.Comparator;
