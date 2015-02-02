@@ -13,6 +13,9 @@ public class NumTest {
 		Assert.assertEquals(y.get(), 15);
 		x.set(100);
 		Assert.assertEquals(x.get(), 100);
+		Assert.assertEquals(y.get(),105);
+		x.set(500);
+		y = x.plus(10);
+		Assert.assertEquals(y.get(),510);
 	}
-	
 }
