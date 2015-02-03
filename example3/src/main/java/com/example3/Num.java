@@ -20,7 +20,7 @@ public class Num {
 		Num e = new Num(val - i);
 		return setElem("-", e, i);
 	}
-
+	
 	public Num multiplication(int i) {
 		Num e = new Num(val * i);
 		return setElem("*", e, i);
@@ -30,7 +30,7 @@ public class Num {
 		Num e = new Num(val / i);
 		return setElem("/", e, i);
 	}
-
+	
 	public Num setElem(String o, Num e, int i) {
 		operator = o;
 		elem = e;
@@ -40,10 +40,15 @@ public class Num {
 
 	public void set(int i) {
 		val = i;
+		
 		if (operator == "+") {
 			elem.val = val + additionallyVal;
-		} else {
+		} else if(operator == "*"){
 			elem.val = val * additionallyVal;
+		} else if(operator == "/"){
+			elem.val = val / additionallyVal;
+		}else{
+			elem.val = val - additionallyVal;
 		}
 	}
 

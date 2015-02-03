@@ -24,11 +24,12 @@ public class NumTest {
 		y = x.subtraction(200);
 		Assert.assertEquals(y.get(), 300);
 
+		x.set(100);
 		y = x.multiplication(2);
-		Assert.assertEquals(y.get(), 1000);
+		Assert.assertEquals(y.get(), 200);
 		
 		y = x.division(2);
-		Assert.assertEquals(y.get(), 250);
+		Assert.assertEquals(y.get(), 50);
 
 	}
 }
