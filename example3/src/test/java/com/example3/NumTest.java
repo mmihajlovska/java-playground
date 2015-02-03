@@ -24,5 +24,8 @@ public class NumTest {
 		y = x.subtraction(200);
 		Assert.assertEquals(y.get(), 300);
 
+		y = x.multiplication(2);
+		Assert.assertEquals(y.get(), 1000);
+
 	}
 }
