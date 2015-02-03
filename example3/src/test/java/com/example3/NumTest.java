@@ -26,6 +26,9 @@ public class NumTest {
 
 		y = x.multiplication(2);
 		Assert.assertEquals(y.get(), 1000);
+		
+		y = x.division(2);
+		Assert.assertEquals(y.get(), 250);
 
 	}
 }

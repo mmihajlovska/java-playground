@@ -26,6 +26,11 @@ public class Num {
 		return setElem("*", e, i);
 	}
 
+	public Num division(int i) {
+		Num e = new Num(val / i);
+		return setElem("/", e, i);
+	}
+
 	public Num setElem(String o, Num e, int i) {
 		operator = o;
 		elem = e;
