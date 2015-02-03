@@ -3,26 +3,42 @@ package com.example3;
 public class Num {
 
 	private int val;
-	private int plus = 0;
+	private int additionallyVal = 0;
 	private Num elem;
+	private String operator;
 
 	public Num(int i) {
 		this.val = i;
 	}
 
-	public Num plus(int i) {
+	public Num addition(int i) {
 		Num e = new Num(val + i);
+		return setElem("+", e, i);
+	}
+
+	public Num subtraction(int i) {
+		Num e = new Num(val - i);
+		return setElem("-", e, i);
+	}
+
+	public Num setElem(String o, Num e, int i) {
+		operator = o;
 		elem = e;
-		plus = i;
+		additionallyVal = i;
 		return e;
 	}
 
 	public void set(int i) {
 		val = i;
-		elem.val = val + plus;
+		if (operator == "+") {
+			elem.val = val + additionallyVal;
+		} else {
+			elem.val = val * additionallyVal;
+		}
 	}
 
 	public int get() {
 		return val;
 	}
+
 }
