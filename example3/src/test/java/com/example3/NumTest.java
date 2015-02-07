@@ -13,7 +13,7 @@ public class NumTest {
 
 		Num result = nb.addition(5);
 		Assert.assertEquals(result.get(), 15);
-
+		
 		nb.set(100);
 		Assert.assertEquals(nb.get(), 100);
 		Assert.assertEquals(result.get(), 105);
@@ -31,6 +31,28 @@ public class NumTest {
 		
 		result = nb.division(2);
 		Assert.assertEquals(result.get(), 50);
+	}
+	
+	@Test
+	public void testNum2() {
+		Num x = new Num(10);
+		Assert.assertEquals(x.get(), 10);
+		
+		Num y = x.addition(5);
+		Assert.assertEquals(y.get(), 15);
+		
+		y = x.subtraction(3);
+		Assert.assertEquals(y.get(), 7);
+		
+		x.set(100);
+		
+		Num z = x.addition(10);
+		Assert.assertEquals(z.get(), 110);
+
+		Num w = z.addition(5);
+		Assert.assertEquals(w.get(), 115);
+
+		
 	}
 		
 	@Test
