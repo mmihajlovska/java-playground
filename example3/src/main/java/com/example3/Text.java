@@ -1,6 +1,6 @@
 package com.example3;
 
-public class Text {
+public class Text{
 
 	private String val;
 	private String additionallyVal = "";
