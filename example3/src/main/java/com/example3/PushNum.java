@@ -1,51 +1,51 @@
 package com.example3;
 
-public class Num {
+public class PushNum {
 
 	private int val;
 	private int additionallyVal = 0;
 	private String operator;
-	private Num head;
-	private Num next;
+	private PushNum head;
+	private PushNum next;
 
-	public Num(int i) {
+	public PushNum(int i) {
 		this.val = i;
 	}
 
-	public Num addition(int i) {
-		Num e = new Num(val + i);
+	public PushNum addition(int i) {
+		PushNum e = new PushNum(val + i);
 		return setElem("+", e, i);
 	}
 
-	public Num subtraction(int i) {
-		Num e = new Num(val - i);
+	public PushNum subtraction(int i) {
+		PushNum e = new PushNum(val - i);
 		return setElem("-", e, i);
 	}
 
-	public Num multiplication(int i) {
-		Num e = new Num(val * i);
+	public PushNum multiplication(int i) {
+		PushNum e = new PushNum(val * i);
 		return setElem("*", e, i);
 	}
 
-	public Num division(int i) {
-		Num e = new Num(val / i);
+	public PushNum division(int i) {
+		PushNum e = new PushNum(val / i);
 		return setElem("/", e, i);
 	}
 
-	public void add(String o, Num e, int i) {
+	public void add(String o, PushNum e, int i) {
 		e.operator = o;
 		e.additionallyVal = i;
 
 		if (head == null) {
 			head = e;
 		} else {
-			Num last = getLastElement();
+			PushNum last = getLastElement();
 			last.next = e;
 		}
 	}
 
-	private Num getLastElement() {
-		Num el = head;
+	private PushNum getLastElement() {
+		PushNum el = head;
 
 		while (el.next != null) {
 			el = el.next;
@@ -54,7 +54,7 @@ public class Num {
 		return el;
 	}
 
-	public Num setElem(String o, Num e, int i) {
+	public PushNum setElem(String o, PushNum e, int i) {
 		add(o, e, i);
 		return e;
 	}
@@ -62,7 +62,7 @@ public class Num {
 	public void set(int i) {
 		val = i;
 
-		Num elem = head;
+		PushNum elem = head;
 
 		while (elem != null) {
 
