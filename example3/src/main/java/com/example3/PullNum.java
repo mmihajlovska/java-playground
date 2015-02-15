@@ -35,7 +35,6 @@ public class PullNum implements Num {
 		return setElem("/", e, i);
 	}
 
-	@Override
 	public PullNum setElem(String o, PullNum e, int i) {
 		e.elem = this;
 		e.additionallyVal = i;

@@ -36,7 +36,6 @@ public class PushNum implements Num {
 		return setElem("/", e, i);
 	}
 
-	@Override
 	public void add(String o, PushNum e, int i) {
 		e.operator = o;
 		e.additionallyVal = i;
@@ -58,8 +57,7 @@ public class PushNum implements Num {
 
 		return el;
 	}
-
-	@Override
+	
 	public PushNum setElem(String o, PushNum e, int i) {
 		add(o, e, i);
 		return e;
