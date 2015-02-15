@@ -1,6 +1,6 @@
 package com.example3;
 
-public class PushNum {
+public class PushNum implements Num {
 
 	private int val;
 	private int additionallyVal = 0;
@@ -12,26 +12,31 @@ public class PushNum {
 		this.val = i;
 	}
 
+	@Override
 	public PushNum addition(int i) {
 		PushNum e = new PushNum(val + i);
 		return setElem("+", e, i);
 	}
 
+	@Override
 	public PushNum subtraction(int i) {
 		PushNum e = new PushNum(val - i);
 		return setElem("-", e, i);
 	}
 
+	@Override
 	public PushNum multiplication(int i) {
 		PushNum e = new PushNum(val * i);
 		return setElem("*", e, i);
 	}
 
+	@Override
 	public PushNum division(int i) {
 		PushNum e = new PushNum(val / i);
 		return setElem("/", e, i);
 	}
 
+	@Override
 	public void add(String o, PushNum e, int i) {
 		e.operator = o;
 		e.additionallyVal = i;
@@ -54,11 +59,13 @@ public class PushNum {
 		return el;
 	}
 
+	@Override
 	public PushNum setElem(String o, PushNum e, int i) {
 		add(o, e, i);
 		return e;
 	}
 
+	@Override
 	public void set(int i) {
 		val = i;
 
@@ -80,7 +87,9 @@ public class PushNum {
 		}
 	}
 
+	@Override
 	public int get() {
 		return val;
 	}
+
 }
