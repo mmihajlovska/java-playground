@@ -1,12 +1,14 @@
 package com.example3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PushNum implements Num {
 
 	private int val;
 	private int additionallyVal = 0;
 	private String operator;
-	private PushNum head;
-	private PushNum next;
+	private List<PushNum> list = new ArrayList<PushNum>();
 
 	public PushNum(int i) {
 		this.val = i;
@@ -36,30 +38,10 @@ public class PushNum implements Num {
 		return setElem("/", e, i);
 	}
 
-	public void add(String o, PushNum e, int i) {
+	public PushNum setElem(String o, PushNum e, int i) {
 		e.operator = o;
 		e.additionallyVal = i;
-
-		if (head == null) {
-			head = e;
-		} else {
-			PushNum last = getLastElement();
-			last.next = e;
-		}
-	}
-
-	private PushNum getLastElement() {
-		PushNum el = head;
-
-		while (el.next != null) {
-			el = el.next;
-		}
-
-		return el;
-	}
-	
-	public PushNum setElem(String o, PushNum e, int i) {
-		add(o, e, i);
+		list.add(e);
 		return e;
 	}
 
@@ -67,9 +49,7 @@ public class PushNum implements Num {
 	public void set(int i) {
 		val = i;
 
-		PushNum elem = head;
-
-		while (elem != null) {
+		for (PushNum elem : list) {
 
 			if (elem.operator == "+") {
 				elem.val = val + elem.additionallyVal;
@@ -81,7 +61,6 @@ public class PushNum implements Num {
 				elem.val = val - elem.additionallyVal;
 			}
 
-			elem = elem.next;
 		}
 	}
 
