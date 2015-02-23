@@ -2,10 +2,9 @@ package com.example3;
 
 public class PullNum implements Num {
 
-	private int val;
-	private int additionallyVal = 0;
-	private String operator;
-	private PullNum elem;
+	protected int val;
+	protected PullNum elem;
+	protected int additionallyVal;
 
 	public PullNum(int i) {
 		this.val = i;
@@ -13,32 +12,31 @@ public class PullNum implements Num {
 
 	@Override
 	public PullNum addition(int i) {
-		PullNum e = new PullNum(val + i);
-		return setElem("+", e, i);
+		PullNum e = new PlusPullNum(val + i);
+		return setElem(e, i);
 	}
 
 	@Override
 	public PullNum subtraction(int i) {
-		PullNum e = new PullNum(val - i);
-		return setElem("-", e, i);
+		PullNum e = new MinusPullNum(val - i);
+		return setElem(e, i);
 	}
 
 	@Override
 	public PullNum multiplication(int i) {
-		PullNum e = new PullNum(val * i);
-		return setElem("*", e, i);
+		PullNum e = new MultiplyPullNum(val * i);
+		return setElem(e, i);
 	}
 
 	@Override
 	public PullNum division(int i) {
-		PullNum e = new PullNum(val / i);
-		return setElem("/", e, i);
+		PullNum e = new DividePullNum(val / i);
+		return setElem(e, i);
 	}
 
-	public PullNum setElem(String o, PullNum e, int i) {
+	public PullNum setElem(PullNum e, int i) {
 		e.elem = this;
 		e.additionallyVal = i;
-		e.operator = o;
 		return e;
 	}
 
@@ -49,21 +47,6 @@ public class PullNum implements Num {
 
 	@Override
 	public int get() {
-		if (this.elem != null) {
-
-			PullNum e = this.elem;
-
-			if (operator == "+") {
-				val = e.val + additionallyVal;
-			} else if (operator == "*") {
-				val = e.val * additionallyVal;
-			} else if (operator == "/") {
-				val = e.val / additionallyVal;
-			} else {
-				val = e.val - additionallyVal;
-			}
-		}
-
 		return val;
 	}
 }

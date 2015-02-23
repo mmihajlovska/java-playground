@@ -13,6 +13,5 @@ public interface Num {
 	void set(int i);
 
 	int get();
-	
-}
 
+}
